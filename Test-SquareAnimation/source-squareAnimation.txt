@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: SquareAnimation(),
+    );
+  }
+}
+
+class SquareAnimation extends StatefulWidget {
+  @override
+  State<SquareAnimation> createState() {
+    return SquareAnimationState();
+  }
+}
+
+class SquareAnimationState extends State<SquareAnimation> {
+  static const squareSize = 50.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          height: 100,
+          child: Stack(
+            children: [
+              Container(
+                width: squareSize,
+                height: squareSize,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  border: Border.all(),
+                ),
+              )
+            ],
+          ),
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ElevatedButton(onPressed: () {}, child: const Text("To the left")),
+            ElevatedButton(
+                onPressed: () => {}, child: const Text("To the right"))
+          ],
+        )
+      ],
+    );
+  }
+}
